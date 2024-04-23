@@ -1,0 +1,13 @@
+Kw.1
+SELECT imie, nazwisko, miasto FROM `klient` WHERE miasto LIKE "Warszawa" OR miasto LIKE "Legionowo";
+
+Kw.2
+SELECT nazwa FROM `produkty` WHERE cena_brutto > 500;
+
+Kw.3
+SELECT kategorie.nazwa_kategorii, AVG(produkty.cena_brutto) FROM `kategorie` INNER JOIN produkty ON produkty.id_kat=kategorie.id_kat GROUP BY produkty.id_kat;
+
+Kw.4
+SELECT zamowienia.id_zam, zamowienia.ilosc, zamowienia.wartosc, produkty.nazwa FROM `zamowienia`
+INNER JOIN produkty ON produkty.id_prod=zamowienia.id_prod
+WHERE zamowienia.id_klient LIKE 2
